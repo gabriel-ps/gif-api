@@ -13,7 +13,9 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'Gif API'),
+
+    'clients_endpoints' => explode(',', env('CLIENTS_ENDPOINTS', 'http://localhost:8081')),
 
     /*
     |--------------------------------------------------------------------------
