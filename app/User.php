@@ -6,6 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Tymon\JWTAuth\Contracts\JWTSubject;
+use App\Gif\GifSearch;
 
 class User extends Authenticatable implements JWTSubject
 {
@@ -56,5 +57,17 @@ class User extends Authenticatable implements JWTSubject
     public function getJWTCustomClaims()
     {
         return [];
+    }
+
+    public function gifSearches()
+    {
+        return $this->hasMany(GifSearch::class);
+    }
+
+    public function logGifSearch(string $search)
+    {
+        return $this->gifSearches()->create([
+            'search' => $search
+        ]);
     }
 }

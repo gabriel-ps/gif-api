@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateGifUserSearchesTable extends Migration
+class CreateGifSearchesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateGifUserSearchesTable extends Migration
      */
     public function up()
     {
-        Schema::create('gif_user_searches', function (Blueprint $table) {
+        Schema::create('gif_searches', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('search');
             $table->unsignedBigInteger('user_id');
@@ -33,6 +33,6 @@ class CreateGifUserSearchesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('gif_user_searches');
+        Schema::dropIfExists('gif_searches');
     }
 }

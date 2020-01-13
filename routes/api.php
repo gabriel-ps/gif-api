@@ -10,9 +10,13 @@
 |
 */
 
-Route::prefix('auth')->group(function ($router) {
+Route::prefix('auth')->namespace('Auth')->group(function () {
     Route::post('login', 'AuthController@login');
     Route::post('logout', 'AuthController@logout');
     Route::post('refresh', 'AuthController@refresh');
     Route::post('me', 'AuthController@me');
+});
+
+Route::prefix('gifs')->middleware('auth')->group(function () {
+    Route::get('/', 'GifsController@index');
 });
