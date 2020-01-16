@@ -19,8 +19,10 @@ Route::prefix('auth')->namespace('Auth')->group(function () {
 
 Route::prefix('gifs')->middleware('auth')->group(function () {
     Route::get('/', 'GifsController@index');
-    Route::post('/favorite', 'GifsController@favorite');
-    Route::delete('/favorite/{id}', 'GifsController@unfavorite');
+
+    Route::get('/favorites', 'GifFavoritesController@index');
+    Route::post('/favorites', 'GifFavoritesController@store');
+    Route::delete('/favorites/{id}', 'GifFavoritesController@destroy');
 
     Route::get('/searches', 'GifSearchesController@index');
 });

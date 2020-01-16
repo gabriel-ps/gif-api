@@ -2,9 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Gif\GifSearch;
-use Illuminate\Http\Request;
-
 class GifSearchesController extends Controller
 {
     /**
