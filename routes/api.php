@@ -19,4 +19,6 @@ Route::prefix('auth')->namespace('Auth')->group(function () {
 
 Route::prefix('gifs')->middleware('auth')->group(function () {
     Route::get('/', 'GifsController@index');
+    Route::post('/favorite', 'GifsController@favorite');
+    Route::delete('/favorite/{id}', 'GifsController@unfavorite');
 });

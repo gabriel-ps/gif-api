@@ -7,6 +7,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Tymon\JWTAuth\Contracts\JWTSubject;
 use App\Gif\GifSearch;
+use App\Gif\GifFavorite;
 
 class User extends Authenticatable implements JWTSubject
 {
@@ -64,10 +65,26 @@ class User extends Authenticatable implements JWTSubject
         return $this->hasMany(GifSearch::class);
     }
 
+    public function gifFavorites()
+    {
+        return $this->hasMany(GifFavorite::class);
+    }
+
     public function logGifSearch(string $search)
     {
         return $this->gifSearches()->create([
             'search' => $search
         ]);
+    }
+
+    public function addFavoriteGif(string $gifId)
+    {
+        return $this->gifFavorites()->create([
+            'gif_id' => $gifId
+        ]);
+    }
+    public function removeFavoriteGif(GifFavorite $favorite)
+    {
+        return $this->gifFavorites()->where('id', $favorite->id)->delete();
     }
 }
