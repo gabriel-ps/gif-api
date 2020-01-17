@@ -41,13 +41,14 @@ Password: 123456
 ## CORs
 By default, CORs policy is going to allow for origin http://localhost:8081. You can change that on the key CLIENTS_ENDPOINTS of your .env file.
 
-Example of .env:
+Example of .env:\
 CLIENTS_ENDPOINTS=http://localhost:8082
-**Multiple clients:**
+
+**Multiple clients:**\
 CLIENTS_ENDPOINTS=http://localhost:8082,http://localhost:8083
 
 ## GIPHY
 This projects fetchs GIFs from [Giphy](https://giphy.com/) with the [giphy-and-stickers](https://github.com/romeroqe/giphy-and-stickers "romeroqe/giphy-and-stickers") package. The package comes with a default beta API key, but it is recomended that you set your own API key on the GIPHY_KEY key of your .env file.
 
-Example of .env:
+Example of .env:\
 GIPHY_KEY=my-api-key
