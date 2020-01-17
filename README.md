@@ -1,6 +1,6 @@
 # GIF API
 
-Simple API to fetch gifs from Giphy.
+Simple API to fetch gifs from [Giphy](https://giphy.com/).
 
 This project is intended to be used with the [gif-frontend](https://github.com/gabriel-ps/gif-frontend "gif-frontend") project.
 
@@ -40,7 +40,8 @@ Password: 123456
 
 ## CORs
 By default, CORs policy is going to allow for origin http://localhost:8081. You can change that on the key CLIENTS_ENDPOINTS of your .env file.
-Example:
+
+Example of .env:
 CLIENTS_ENDPOINTS=http://localhost:8082
 **Multiple clients:**
 CLIENTS_ENDPOINTS=http://localhost:8082,http://localhost:8083
