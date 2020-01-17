@@ -25,6 +25,8 @@ services:
     tty: true
     ports:
       - "3306:3306"
+    volumes:
+      - /opt/mysql_data:./mysql
     environment:
       MYSQL_DATABASE: homestead
       MYSQL_USER: homestead
