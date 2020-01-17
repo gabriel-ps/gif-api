@@ -21,6 +21,12 @@ class GifFavoritesController extends Controller
             ->pluck('gif_id')
             ->toArray();
 
+        if (empty($favoriteIds)) {
+            return response()->json([
+                'data' => [],
+            ]);
+        }
+
         $gifs = Giphy::getByIDs($favoriteIds);
 
         $this->syncFavorites($gifs);
